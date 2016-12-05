@@ -1,0 +1,33 @@
+﻿@model TextContent
+@using Page = BinaryDad.Models.Page
+@{
+    ViewBag.Title = "Create";
+}
+
+@section CSS{
+    <link href="~/Content/Redactor/redactor.css" rel="stylesheet" />
+}
+
+@section Scripts {
+    <script src="~/Content/Redactor/redactor.js"></script>
+    <script>
+
+        $(function () {
+            $('#Body').redactor();
+        });
+
+    </script>
+}
+
+<h1>Create @Model.Type</h1>
+
+@Html.ValidationSummary()
+
+@using (Html.BeginRouteForm("Admin", new { action = "create" }, FormMethod.Post, new { id = "content-create-wrapper" }))
+{
+    @Html.Hidden("type", Model.GetType().Name)
+
+    @Html.Partial("Form")
+
+    <button type="submit">Create</button>
+}

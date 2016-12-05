@@ -1,0 +1,25 @@
+﻿@model HomeViewModel
+@using System.Text.RegularExpressions
+@{
+    ViewBag.Title = Model.Page.Title;
+}
+
+@if (!String.IsNullOrWhiteSpace(Model.Page.Body))
+{
+    @Html.Raw(Model.Page.Body)
+}
+
+<ul id="entries">
+    @foreach (var entry in Model.Entries.OrderByDescending(e => e.Published))
+    {
+        <li>
+            <h2><a href="/@entry.Path">@entry.Title</a></h2>
+            <div class="published">@entry.Published.Value.ToShortDateString()</div>
+            @{
+                var maxLength = 400;
+                var cropped = Regex.Replace(entry.Body, @"<[^>]*>", String.Empty);
+            }
+            <p>@(String.IsNullOrWhiteSpace(entry.Summary) ? (cropped.Length <= maxLength ? cropped : String.Format("{0}...", cropped.Substring(0, maxLength))) : entry.Summary)</p>
+        </li>
+    }
+</ul>

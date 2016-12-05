@@ -1,0 +1,17 @@
+﻿@model LoginViewModel
+@{
+    ViewBag.Title = "Login";
+}
+
+<h1>Login</h1>
+
+<form method="post">
+
+    <label>Username</label>
+    @Html.TextBoxFor(m => m.Username)
+
+    <label>Password</label>
+    @Html.PasswordFor(m => m.Password)
+
+    <button type="submit">Login</button>
+</form>

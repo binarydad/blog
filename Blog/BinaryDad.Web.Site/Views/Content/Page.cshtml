@@ -1,0 +1,40 @@
+﻿@model TextContent
+@{
+    ViewBag.Title = Model.Title;
+}
+
+<div id="page-wrapper">
+    <h1>@Model.Title</h1>
+
+    @if (Model is BlogEntry)
+    {
+        <div class="published">@Model.Published.Value.ToShortDateString()</div>
+    }
+
+    <div id="page-content">@Html.Raw(Model.Body)</div>
+
+    @if (Model is BlogEntry)
+    {
+        var entries = (Model as BlogEntry).Blog.Entries
+            .Where(e => e.ID != Model.ID)
+            .OrderByDescending(e => e.Published);
+
+        if (entries.Any())
+        {
+            <h3>Other Posts</h3>
+
+            <ul>
+                @foreach (var entry in entries)
+                {
+                    <li><a href="/@entry.Path">@entry.Title</a></li>
+                }
+            </ul>
+        }
+    }
+
+    @if (Request.IsAuthenticated)
+    {
+        @Html.RouteLink("Edit", "Admin", new { controller = "admin", action = "edit", path = Model.Path }, new { @class = "edit-link" })
+    }
+
+</div>

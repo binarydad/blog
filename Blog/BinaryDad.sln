@@ -1,0 +1,77 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryDad.Data", "BinaryDad.Data\BinaryDad.Data.csproj", "{0BC6285A-2108-4ACD-8B3F-78D607C207CC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryDad.Services", "BinaryDad.Services\BinaryDad.Services.csproj", "{8927C97C-D2FF-41B2-9031-7C10AD946251}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{7D484636-5530-42FE-BE0E-38604F19B079}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryDad.Web.Site", "BinaryDad.Web.Site\BinaryDad.Web.Site.csproj", "{8D98AB06-8695-482C-8757-026C87952385}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{DE9904AF-F053-4E37-81FE-03C2974BB9A5}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryDad", "BinaryDad\BinaryDad.csproj", "{9585C571-F995-4022-AAA7-3D6241E48533}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BinaryDad.Services.Tests", "BinaryDad.Services.Tests\BinaryDad.Services.Tests.csproj", "{10A6537B-407C-487C-AC42-1E36A5668C3D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0BC6285A-2108-4ACD-8B3F-78D607C207CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BC6285A-2108-4ACD-8B3F-78D607C207CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BC6285A-2108-4ACD-8B3F-78D607C207CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BC6285A-2108-4ACD-8B3F-78D607C207CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8927C97C-D2FF-41B2-9031-7C10AD946251}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8927C97C-D2FF-41B2-9031-7C10AD946251}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8927C97C-D2FF-41B2-9031-7C10AD946251}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8927C97C-D2FF-41B2-9031-7C10AD946251}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D98AB06-8695-482C-8757-026C87952385}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D98AB06-8695-482C-8757-026C87952385}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D98AB06-8695-482C-8757-026C87952385}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D98AB06-8695-482C-8757-026C87952385}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9585C571-F995-4022-AAA7-3D6241E48533}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9585C571-F995-4022-AAA7-3D6241E48533}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9585C571-F995-4022-AAA7-3D6241E48533}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9585C571-F995-4022-AAA7-3D6241E48533}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10A6537B-407C-487C-AC42-1E36A5668C3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10A6537B-407C-487C-AC42-1E36A5668C3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10A6537B-407C-487C-AC42-1E36A5668C3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10A6537B-407C-487C-AC42-1E36A5668C3D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{10A6537B-407C-487C-AC42-1E36A5668C3D} = {7D484636-5530-42FE-BE0E-38604F19B079}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://tfs:8080/tfs/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = BinaryDad.Services.Tests\\BinaryDad.Services.Tests.csproj
+		SccProjectTopLevelParentUniqueName1 = BinaryDad.sln
+		SccProjectName1 = BinaryDad.Services.Tests
+		SccLocalPath1 = BinaryDad.Services.Tests
+		SccProjectUniqueName2 = BinaryDad\\BinaryDad.csproj
+		SccProjectName2 = BinaryDad
+		SccLocalPath2 = BinaryDad
+		SccProjectUniqueName3 = BinaryDad.Services\\BinaryDad.Services.csproj
+		SccProjectName3 = BinaryDad.Services
+		SccLocalPath3 = BinaryDad.Services
+		SccProjectUniqueName4 = BinaryDad.Web.Site\\BinaryDad.Web.Site.csproj
+		SccProjectName4 = BinaryDad.Web.Site
+		SccLocalPath4 = BinaryDad.Web.Site
+	EndGlobalSection
+EndGlobal

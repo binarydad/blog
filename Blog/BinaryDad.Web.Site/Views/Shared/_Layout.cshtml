@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="BinaryDad blog" />
+    <title>@ViewBag.Title - BinaryDad</title>
+    <link href="~/Content/CSS/Site.css" rel="stylesheet" type="text/css" />
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:600,400,300" rel="stylesheet" />
+    <link href="~/Content/Highlight/styles/custom.css" rel="stylesheet" />
+    @RenderSection("CSS", false)
+</head>
+<body>
+
+    @* header *@
+    <header>
+        @Html.Action("MainNavigation", "Content")
+        <a id="logo" href="~/">_binaryDad;</a>
+        <div id="social-icons">
+            <a href="https://www.facebook.com/binarydad"><img src="~/Content/Images/facebook.png" /></a>
+            <a href="https://twitter.com/thebinarydad"><img src="~/Content/Images/twitter.png" /></a>
+            <a href="https://www.linkedin.com/in/binarydad"><img src="~/Content/Images/linkedin.png" /></a>
+        </div>
+    </header>
+
+    @* body *@
+    @RenderBody()
+
+    @* scripts *@
+    <script src="~/Scripts/jquery-2.2.1.min.js"></script>
+    <script src="~/Content/Highlight/highlight.js"></script>
+    <script src="~/Scripts/global.js"></script>
+    <script>$(window.binarydad.init);</script>
+    @RenderSection("Scripts", false)
+
+</body>
+</html>

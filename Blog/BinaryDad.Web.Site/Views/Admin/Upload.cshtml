@@ -1,0 +1,67 @@
+﻿@model IEnumerable<BinaryDad.Models.File>
+@{
+    ViewBag.Title = "Upload";
+
+    var images = Model.Where(f => f.IsImage).OrderByDescending(f => f.Published);
+    var files = Model.Where(f => !f.IsImage).OrderBy(f => f.Title);
+}
+
+<h1>File Management</h1>
+
+<section id="image-list">
+
+    <h2>Images</h2>
+    @if (images.Any())
+    {
+        <ul>
+            @foreach (var image in images)
+            {
+                <li>
+                    
+                    <a href="/file/@image.Path" target="_blank">
+                        <div>@image.Path</div>
+                        <img src="/file/@image.Path" />
+                    </a>
+                    <a href="/delete/@image.Path?returnUrl=/upload" class="delete confirm">Delete</a>
+                </li>
+            }
+        </ul>
+    }
+    else
+    {
+        <em>No images</em>
+    }
+
+</section>
+
+<section id="file-list">
+
+    <h2>Files</h2>
+    @if (files.Any())
+    {
+        <ul>
+            @foreach (var file in files)
+            {
+                <li>
+                    <a target="_blank" href="/file/@file.Path">@file.Title</a> (@file.Published)
+                    <a href="/delete/@file.Path?returnUrl=/upload" class="delete confirm">Delete</a>
+                </li>
+            }
+        </ul>
+    }
+    else
+    {
+        <em>No files</em>
+    }
+</section>
+
+<h2>Upload</h2>
+<form action="" method="post" enctype="multipart/form-data">
+
+    <label>Filename:</label>
+    <input type="file" name="files" multiple />
+
+    <div class="button-set">
+        <button type="submit">Upload</button>
+    </div>
+</form>

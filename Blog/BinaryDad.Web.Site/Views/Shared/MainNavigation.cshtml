@@ -1,0 +1,34 @@
+﻿@model IEnumerable<BinaryDad.Models.Page>
+@{
+    var homeId = new Guid("4B33B37E-5A49-4C70-9757-2C323019827D");
+    var pages = Model.Where(p => p.Parent != null).ToList();
+
+    var topLevel = pages.Where(p => p.Parent.ID == homeId);
+}
+<ul id="navigation">
+
+
+
+    @foreach (var page in topLevel)
+    {
+        <li>
+            <a href="/@page.Path">@page.Title</a>
+
+            @{
+                var subPages = pages.Where(p => p.Parent.ID == page.ID);
+
+                if (subPages.Any())
+                {
+                    <ul>
+                        @foreach (var sub in subPages)
+                        {
+                            <li><a href="/@sub.Path">@sub.Title</a></li>
+                        }
+                    </ul>
+                }
+            }
+
+        </li>
+    }
+    
+</ul>

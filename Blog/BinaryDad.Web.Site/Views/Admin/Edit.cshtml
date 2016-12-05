@@ -1,0 +1,45 @@
+﻿@using File = BinaryDad.Models.File
+
+@model TextContent
+@{
+    ViewBag.Title = "Edit";
+
+    var files = ViewBag.Files as IEnumerable<File>;
+}
+
+@section CSS{
+    <link href="~/Content/Redactor/redactor.css" rel="stylesheet" />
+}
+
+@section Scripts {
+    <script src="~/Content/Redactor/redactor.js"></script>
+    <script>
+
+        $(function () {
+            $('#Body').redactor();
+        });
+
+    </script>
+}
+
+<h1>Editing: @Model.Title</h1>
+
+@using (Html.BeginRouteForm("Admin", new { action = "edit" }, FormMethod.Post, new { id = "content-edit-wrapper" }))
+{
+    @Html.HiddenFor(m => m.ID)
+    @Html.HiddenFor(m => m.Revision)
+
+    @* Need to use .BaseType since lazy loading is enabled and a proxy is used for this type *@
+    @Html.Hidden("type", Model.GetType().BaseType.Name)
+
+    <label>Content ID</label>
+    <div>@Model.ID</div>
+
+    @Html.Partial("Form")
+
+    <div class="button-set">
+        <button type="submit">Save</button>
+        <a href="/@Model.Path">View &raquo;</a>
+        <a class="delete confirm" href="@Url.RouteUrl(new { action = "delete", path = Model.Path })">Delete</a>
+    </div>
+}

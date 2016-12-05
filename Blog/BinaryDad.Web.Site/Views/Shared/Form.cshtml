@@ -1,0 +1,51 @@
+﻿@model TextContent
+
+@using Page = BinaryDad.Models.Page
+@using File = BinaryDad.Models.File
+
+@{
+    var files = ViewBag.Files as IEnumerable<File>;
+}
+
+<label>Title</label>
+@Html.TextBoxFor(m => m.Title)
+
+<label>Path</label>
+@Html.TextBoxFor(m => m.Path)
+
+<label>Published</label>
+@Html.TextBoxFor(m => m.Published)
+
+@if (Model is BlogEntry)
+{
+    <label>Summary</label>
+    @Html.TextArea("Summary", (Model as BlogEntry).Summary, new { id = "summary" })
+}
+else if (Model is Page)
+{
+    var page = Model as Page;
+    var parents = ViewBag.Parents as IEnumerable<Page>;
+
+    if (parents != null)
+    {
+        var parentsList = parents
+        .Select(p => new SelectListItem { Text = p.Title, Value = p.ID.ToString(), Selected = page.Parent != null && p.ID == page.Parent.ID })
+        .OrderBy(p => p.Text);
+
+        <label>Parent</label>
+        @Html.DropDownList("Parent.ID", parentsList)
+    }
+}
+
+<label>Body</label>
+@Html.TextAreaFor(m => m.Body)
+
+@if (files.Any())
+{
+    <ul>
+        @foreach (var file in files)
+        {
+            <li><a target="_blank" href="/file/@file.Path">/file/@file.Path</a></li>
+        }
+    </ul>
+}
