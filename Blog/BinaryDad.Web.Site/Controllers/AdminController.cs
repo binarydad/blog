@@ -25,7 +25,7 @@ namespace BinaryDad.Web.Site.Controllers
         [AllowAnonymous]
         public ActionResult LoginPost(LoginViewModel model)
         {
-            if (model.Username == "binarydad" && model.Password == "fuckthatstupidcunt")
+            if (model.Username == "binarydad" && model.Password == "thisisonlytemporaryipromise")
             {
                 FormsAuthentication.RedirectFromLoginPage(model.Username, true);
             }
